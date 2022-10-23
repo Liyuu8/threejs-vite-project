@@ -5,7 +5,9 @@ export const createBall = () => {
   // https://threejs.org/docs/index.html?q=geome#api/en/geometries/SphereGeometry
 
   const texture = new THREE.TextureLoader().load(
-    '/src/images/textures/earth.jpg'
+    import.meta.env.DEV
+      ? 'src/images/textures/earth.jpg'
+      : 'https://raw.githubusercontent.com/Liyuu8/threejs-vite-project/main/src/images/textures/earth.jpg'
   );
 
   const ballMaterial = new THREE.MeshPhysicalMaterial({ map: texture });
