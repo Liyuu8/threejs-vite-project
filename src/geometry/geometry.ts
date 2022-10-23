@@ -4,12 +4,18 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { createCamera } from '../components/camera/geometry';
 import { createambientLight } from '../components/light/ambient_light';
 import { createBox } from '../components/mesh/box';
+import { createPlane } from '../components/mesh/plane';
+import { createSphere } from '../components/mesh/sphere';
+import { createTorus } from '../components/mesh/torus';
 import { createScene } from '../components/scene/main';
 
 const renderer = new THREE.WebGLRenderer({ alpha: true });
-const geometry = createBox();
+const box = createBox();
+const sphere = createSphere();
+const plane = createPlane();
+const torue = createTorus();
 const light = createambientLight();
-const scene = createScene(geometry, light);
+const scene = createScene(box, sphere, plane, torue, light);
 const camera = createCamera();
 
 const animate = () => {
