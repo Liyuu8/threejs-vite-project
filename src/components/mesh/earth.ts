@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 
-export const createBall = () => {
-  const ballGeometry = new THREE.SphereGeometry(100, 64, 32);
+export const createEarth = () => {
+  const geometry = new THREE.SphereGeometry(100, 64, 32);
   // https://threejs.org/docs/index.html?q=geome#api/en/geometries/SphereGeometry
 
   const rowContentEndpoint =
@@ -11,8 +11,8 @@ export const createBall = () => {
     (import.meta.env.DEV ? '' : rowContentEndpoint) + imagePath
   );
 
-  const ballMaterial = new THREE.MeshPhysicalMaterial({ map: texture });
+  const material = new THREE.MeshPhysicalMaterial({ map: texture });
   // https://threejs.org/docs/index.html?q=MeshPhysicalMaterial#api/en/materials/MeshPhysicalMaterial
 
-  return new THREE.Mesh(ballGeometry, ballMaterial);
+  return new THREE.Mesh(geometry, material);
 };

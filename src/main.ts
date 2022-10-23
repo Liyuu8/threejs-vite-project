@@ -4,11 +4,11 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { createCamera } from './components/camera/earth';
 import { createDirectionalLight } from './components/light/directional_light';
 import { createPointLight } from './components/light/point_light';
-import { createBall } from './components/mesh/ball';
+import { createEarth } from './components/mesh/earth';
 import { createScene } from './components/scene/main';
 
 const renderer = new THREE.WebGLRenderer({ alpha: true });
-const ballMesh = createBall();
+const ballMesh = createEarth();
 const directionalLight = createDirectionalLight();
 const { pointLight, pointLightHelper, pointLightAnimate } = createPointLight();
 const scene = createScene(
