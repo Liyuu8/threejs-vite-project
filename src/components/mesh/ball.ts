@@ -5,8 +5,8 @@ export const createBall = () => {
   // https://threejs.org/docs/index.html?q=geome#api/en/geometries/SphereGeometry
 
   const rowContentEndpoint =
-    'https://raw.githubusercontent.com/Liyuu8/threejs-vite-project/main/';
-  const imagePath = 'src/images/textures/earth.jpg';
+    'https://raw.githubusercontent.com/Liyuu8/threejs-vite-project/main/src/';
+  const imagePath = 'images/textures/earth.jpg';
   const texture = new THREE.TextureLoader().load(
     (import.meta.env.DEV ? '' : rowContentEndpoint) + imagePath
   );
