@@ -11,6 +11,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'src/index.html'),
         geometry: resolve(__dirname, 'src/geometry/index.html'),
+        ui_debug: resolve(__dirname, 'src/ui_debug/index.html'),
       },
     },
     // https://vitejs.dev/guide/build.html#multi-page-app
