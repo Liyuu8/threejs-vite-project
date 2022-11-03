@@ -10,8 +10,12 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/index.html'),
-        geometry: resolve(__dirname, 'src/geometry/index.html'),
-        ui_debug: resolve(__dirname, 'src/ui_debug/index.html'),
+        geometry: resolve(__dirname, 'src/tutorial/geometry/index.html'),
+        ui_debug: resolve(__dirname, 'src/tutorial/ui_debug/index.html'),
+        material_and_mesh: resolve(
+          __dirname,
+          'src/tutorial/material_and_mesh/index.html'
+        ),
       },
     },
     // https://vitejs.dev/guide/build.html#multi-page-app
