@@ -1,19 +1,19 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import GUI from 'lil-gui';
 
 import { createCamera } from '../components/camera/geometry';
 import { createambientLight } from '../components/light/ambient_light';
 import { createBox } from '../components/mesh/box';
 import { createScene } from '../components/scene/main';
-
-const gui = new GUI();
+import { useGuiDebug } from '../util/gui_debug';
 
 const renderer = new THREE.WebGLRenderer({ alpha: true });
-const box = createBox();
+const { box, material } = createBox();
 const light = createambientLight();
 const scene = createScene(box, light);
 const camera = createCamera();
+
+useGuiDebug(box, material);
 
 const animate = () => {
   requestAnimationFrame(animate);
