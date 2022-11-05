@@ -2,17 +2,28 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 import { createCamera } from '../../components/camera/geometry';
-import { createambientLight } from '../../components/light/ambient_light';
-import { createBox } from '../../components/mesh/box';
+import { createMaterial } from '../../components/material/material';
+import { createOctahedron } from '../../components/mesh/octahedron';
+import { createPlane } from '../../components/mesh/plane';
+import { createSphere } from '../../components/mesh/sphere';
 import { createScene } from '../../components/scene/main';
 
 const renderer = new THREE.WebGLRenderer({ alpha: true });
-const { box } = createBox();
-const light = createambientLight();
-const scene = createScene(box, light);
+const material = createMaterial('brick');
+const sphere = createSphere(material);
+const plane = createPlane(material);
+const octahedron = createOctahedron(material);
+const meshList = [sphere, plane, octahedron];
+const scene = createScene(...meshList);
 const camera = createCamera();
+const clock = new THREE.Clock();
 
 const animate = () => {
+  const elapsedTime = clock.getElapsedTime();
+  meshList.forEach(
+    (mesh) => ([mesh.rotation.x, mesh.rotation.y] = [elapsedTime, elapsedTime])
+  );
+
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
 };
