@@ -1,9 +1,7 @@
 import * as THREE from 'three';
 
-export const createBox = () => {
-  const geometry = new THREE.BoxGeometry(1, 1, 1);
-  const material = new THREE.MeshBasicMaterial({ color: 'red' });
-  const box = new THREE.Mesh(geometry, material);
+export const createBox = (material: THREE.Material) => {
+  const geometry = new THREE.BoxGeometry(0.75, 0.75, 0.75);
 
-  return { box, material };
+  return new THREE.Mesh(geometry, material);
 };

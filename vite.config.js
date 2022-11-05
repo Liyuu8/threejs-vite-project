@@ -16,6 +16,7 @@ export default defineConfig({
           __dirname,
           'src/tutorial/material_and_mesh/index.html'
         ),
+        light: resolve(__dirname, 'src/tutorial/light/index.html'),
       },
     },
     // https://vitejs.dev/guide/build.html#multi-page-app

@@ -3,15 +3,17 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 import { createCamera } from '../../components/camera/geometry';
 import { createambientLight } from '../../components/light/ambient_light';
+import { createMaterial } from '../../components/material/basic_material';
 import { createBox } from '../../components/mesh/box';
 import { createScene } from '../../components/scene/main';
 import { useGuiDebug } from '../../util/gui_debug';
 
 const renderer = new THREE.WebGLRenderer({ alpha: true });
-const { box, material } = createBox();
+const material = createMaterial();
+const box = createBox(material);
 const light = createambientLight(0.7);
 const scene = createScene(box, light);
-const camera = createCamera();
+const camera = createCamera(1, 1, 2);
 
 useGuiDebug(box, material);
 

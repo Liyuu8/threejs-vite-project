@@ -1,7 +1,7 @@
 import GUI from 'lil-gui';
 
 export const useGuiDebug = (
-  mesh: THREE.Mesh<THREE.BoxGeometry, THREE.MeshBasicMaterial>,
+  mesh: THREE.Mesh<THREE.BoxGeometry, THREE.Material>,
   material: THREE.MeshBasicMaterial
 ) => {
   const gui = new GUI();
