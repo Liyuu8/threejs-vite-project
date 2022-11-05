@@ -2,19 +2,23 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 import { createCamera } from '../../components/camera/geometry';
-import { createMaterial } from '../../components/material/normal_material';
+import { createambientLight } from '../../components/light/ambient_light';
+import { createPointLight } from '../../components/light/point_light';
+import { createMaterial } from '../../components/material/standard_material';
 import { createOctahedron } from '../../components/mesh/octahedron';
 import { createPlane } from '../../components/mesh/plane';
 import { createSphere } from '../../components/mesh/sphere';
 import { createScene } from '../../components/scene/main';
 
 const renderer = new THREE.WebGLRenderer({ alpha: true });
-const material = createMaterial();
+const material = createMaterial('brick');
 const sphere = createSphere(material);
 const plane = createPlane(material);
 const octahedron = createOctahedron(material);
 const meshList = [sphere, plane, octahedron];
-const scene = createScene(...meshList);
+const ambientLight = createambientLight();
+const { pointLight } = createPointLight();
+const scene = createScene(...meshList, ambientLight, pointLight);
 const camera = createCamera();
 const clock = new THREE.Clock();
 

@@ -1,7 +1,8 @@
 import * as THREE from 'three';
 
 export const createambientLight = () => {
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+  // 全体を照らすライト
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
 
   return ambientLight;
 };
