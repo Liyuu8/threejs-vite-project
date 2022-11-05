@@ -2,14 +2,14 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 import { createCamera } from '../../components/camera/geometry';
-import { createMaterial } from '../../components/material/material';
+import { createMaterial } from '../../components/material/normal_material';
 import { createOctahedron } from '../../components/mesh/octahedron';
 import { createPlane } from '../../components/mesh/plane';
 import { createSphere } from '../../components/mesh/sphere';
 import { createScene } from '../../components/scene/main';
 
 const renderer = new THREE.WebGLRenderer({ alpha: true });
-const material = createMaterial('brick');
+const material = createMaterial();
 const sphere = createSphere(material);
 const plane = createPlane(material);
 const octahedron = createOctahedron(material);
