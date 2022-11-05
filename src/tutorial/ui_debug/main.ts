@@ -9,7 +9,7 @@ import { useGuiDebug } from '../../util/gui_debug';
 
 const renderer = new THREE.WebGLRenderer({ alpha: true });
 const { box, material } = createBox();
-const light = createambientLight();
+const light = createambientLight(0.7);
 const scene = createScene(box, light);
 const camera = createCamera();
 

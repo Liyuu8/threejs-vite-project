@@ -8,7 +8,7 @@ import { createScene } from '../../components/scene/main';
 
 const renderer = new THREE.WebGLRenderer({ alpha: true });
 const buffer = createBuffers();
-const light = createambientLight();
+const light = createambientLight(0.7);
 const scene = createScene(buffer, light);
 const camera = createCamera();
 
