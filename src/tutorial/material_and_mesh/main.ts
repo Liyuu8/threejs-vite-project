@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 import { createCamera } from '../../components/camera/geometry';
-import { createambientLight } from '../../components/light/ambient_light';
+import { createAmbientLight } from '../../components/light/ambient_light';
 import { createPointLight } from '../../components/light/point_light';
 import { createMaterial } from '../../components/material/standart_texture_material';
 import { createOctahedron } from '../../components/mesh/octahedron';
@@ -16,7 +16,7 @@ const sphere = createSphere(material);
 const plane = createPlane(material);
 const octahedron = createOctahedron(material);
 const meshList = [sphere, plane, octahedron];
-const ambientLight = createambientLight(0.7);
+const ambientLight = createAmbientLight(0.7);
 const { pointLight } = createPointLight();
 const scene = createScene(...meshList, ambientLight, pointLight);
 const camera = createCamera(1, 1, 2);

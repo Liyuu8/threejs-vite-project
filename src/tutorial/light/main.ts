@@ -2,13 +2,15 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 import { createCamera } from '../../components/camera/geometry';
-import { createambientLight } from '../../components/light/ambient_light';
+import { createAmbientLight } from '../../components/light/ambient_light';
+import { createLight } from '../../components/light/spot_light';
 import { createMaterial } from '../../components/material/standard_material';
 import { createBox } from '../../components/mesh/box';
 import { createGround } from '../../components/mesh/ground';
 import { createSphere } from '../../components/mesh/sphere';
 import { createTorus } from '../../components/mesh/torus';
 import { createScene } from '../../components/scene/main';
+import { useLigthGuiDebug } from '../../util/light_gui_debug';
 
 const renderer = new THREE.WebGLRenderer({ alpha: true });
 const material = createMaterial();
@@ -17,10 +19,19 @@ const box = createBox(material);
 const torus = createTorus(material);
 const ground = createGround(material);
 const meshList = [sphere, box, torus];
-const ambientLight = createambientLight(0.5);
-const scene = createScene(...meshList, ground, ambientLight);
+const ambientLight = createAmbientLight(0.5);
+const light = createLight();
+const scene = createScene(
+  ...meshList,
+  ground,
+  ambientLight,
+  light,
+  light.target
+);
 const camera = createCamera(-2, 1, 4);
 const clock = new THREE.Clock();
+
+useLigthGuiDebug(ambientLight);
 
 const animate = () => {
   const elapsedTime = clock.getElapsedTime();
