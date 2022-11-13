@@ -17,6 +17,7 @@ export default defineConfig({
           'src/tutorial/material_and_mesh/index.html'
         ),
         light: resolve(__dirname, 'src/tutorial/light/index.html'),
+        particles: resolve(__dirname, 'src/tutorial/particles/index.html'),
       },
     },
     // https://vitejs.dev/guide/build.html#multi-page-app
