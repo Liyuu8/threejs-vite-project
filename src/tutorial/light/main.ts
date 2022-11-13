@@ -3,7 +3,8 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 import { createCamera } from '../../components/camera/geometry';
 import { createAmbientLight } from '../../components/light/ambient_light';
-import { createLight } from '../../components/light/spot_light';
+import { createRectAreaLight } from '../../components/light/rect_area_light';
+import { createSpotLight } from '../../components/light/spot_light';
 import { createMaterial } from '../../components/material/standard_material';
 import { createBox } from '../../components/mesh/box';
 import { createGround } from '../../components/mesh/ground';
@@ -20,13 +21,17 @@ const torus = createTorus(material);
 const ground = createGround(material);
 const meshList = [sphere, box, torus];
 const ambientLight = createAmbientLight(0.5);
-const light = createLight();
+const { spotLight, spotLightHelper } = createSpotLight();
+const { rectAreaLight, rectAreaLightHelper } = createRectAreaLight();
 const scene = createScene(
   ...meshList,
   ground,
   ambientLight,
-  light,
-  light.target
+  spotLight,
+  spotLight.target,
+  spotLightHelper,
+  rectAreaLight,
+  rectAreaLightHelper
 );
 const camera = createCamera(-2, 1, 4);
 const clock = new THREE.Clock();

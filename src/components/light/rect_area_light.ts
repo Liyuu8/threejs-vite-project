@@ -1,9 +1,12 @@
 import * as THREE from 'three';
+import { RectAreaLightHelper } from 'three/examples/jsm/helpers/RectAreaLightHelper';
 
-export const createLight = () => {
-  const light = new THREE.RectAreaLight(0x4eff00, 1, 3, 4);
-  light.position.set(1.5, 0, 1.5);
-  light.lookAt(0, 0, 0);
+export const createRectAreaLight = () => {
+  const rectAreaLight = new THREE.RectAreaLight(0x4eff00, 1, 3, 4);
+  rectAreaLight.position.set(1.5, 0, 1.5);
+  rectAreaLight.lookAt(0, 0, 0);
 
-  return light;
+  const rectAreaLightHelper = new RectAreaLightHelper(rectAreaLight);
+
+  return { rectAreaLight, rectAreaLightHelper };
 };
