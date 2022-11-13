@@ -20,9 +20,11 @@ const scene = createScene(
 );
 const camera = createCamera();
 
-const animate = () => {
+const animate = (controls: OrbitControls) => {
+  controls.update();
+
   pointLightAnimate();
-  requestAnimationFrame(animate);
+  requestAnimationFrame(() => animate(controls));
   renderer.render(scene, camera);
 };
 
@@ -31,8 +33,10 @@ const init = () => {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // 解像度の調整
   document.body.appendChild(renderer.domElement);
 
-  new OrbitControls(camera, renderer.domElement);
-  animate();
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+
+  animate(controls);
 };
 
 const onWindowResize = () => {
