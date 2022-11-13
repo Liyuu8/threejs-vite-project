@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
-import { createCamera } from '../../components/camera/geometry';
+import { createCamera } from '../../components/camera/tutorial';
 import { createAmbientLight } from '../../components/light/ambient_light';
 import { createMaterial } from '../../components/material/basic_material';
 import { createBox } from '../../components/mesh/box';
